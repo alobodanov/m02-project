@@ -1634,7 +1634,7 @@ table, caption, tbody, tfoot, thead, tr, th, td, svg, rect {
     }
     #OneofUs > .inputChat > input[type='text']{
         width: 324px;
-        height: 58px;
+        height: 56px;
         font-size: 16pt;
         padding: 16px 0 16px 50px;
         border: 2px solid #e1e8ee;
