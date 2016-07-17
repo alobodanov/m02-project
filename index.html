@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+	<head>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js'></script>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	    <script src="js/angular.min.js"></script>
+	    <script src="js/highcharts.js"></script>
+	    <link rel="stylesheet" type="text/css" href="css/slick.css"/>
+	  	<link rel="stylesheet" type="text/css" href="css/slick-theme.css"/>
+	  	<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+	<div id='navigat'>
+		<ul>
+			<li class='logo' style="float:left"><a href='index.html'>m<span>02</span></a></li>
+			<li class='buyNow'><a href='#'>Buy now</a></li>
+			<li class='freeTrial'><a href='#'>Get free trial</a></li>
+		</ul>
+	</div>
+	<div class='information'>
+		<span>Share your Files with Ease</span>
+		<p>We push ourselves to new levels of inspired excellence with each<br /> project and we sweat creativity.</p>
+		<a href='#' class='infoBuyBtn'>Buy now&nbsp;&nbsp;&nbsp;<span>&#124;</span>&nbsp;&nbsp;&nbsp;&#8364;23</a>
+	</div>
+    <div id="container" ng-controller="myController" ></div>
+    <script>
+    	angular.module('myModule', [])
+    		.controller('myController', ['$scope', '$http', function ($scope, $http) {
+    			var index = [];
+	  			var mdata = [];
+	  			var mmonth = [];
+	  			var content = {};
+	  			var length_array;
+	  			
+				  $http.get('data.json').success(function(data) {
+				    $scope.locations = data;
+				    $scope.colours = ['#FD1F5E','#1EF9A1','#7FFD1F','#68F000'];
+				    length_array = data.numbers.length;
+				    for(var i = 0; i < length_array;i++){
+				      	mdata.push(data.numbers[i].money);
+				      	mmonth.push(data.numbers[i].month.substring(0,3));
+				    }
+				    Highcharts.setOptions({
+					    colors:['#f9f9f9']
+					});
+
+				    Highcharts.chart('container', {
+
+					    xAxis: {
+					        categories: mmonth
+					    },
+
+					    series: [{
+					        data: mdata,
+					        color: "#e1e8ee",
+					        name: "Money",
+					        lineWidth: 5,
+					        isDropShadowEnabled: true,
+                    shadowOffsetX: 1,
+                    shadowOffsetY: 4,
+                    useSingleShadow: false,
+                    shadowColor: "#666666",
+					        marker: { fillColor: '#e1e8ee',strokeColor:'red', radius: 7,shadow:40,
+                borderColor:"#f56b6b"},
+					        type: 'area', 
+					        fillColor: {
+		                        linearGradient: {
+		                            x1: 0,
+		                            y1: 0,
+		                            x2: 0,
+		                            y2: 1
+		                        },
+
+		                        stops: [
+		                            [0, Highcharts.getOptions().colors[0]],
+		                            [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+		                        ]
+		                    },
+		             
+
+					    }],
+					});
+				  });
+    		}]);	
+    </script>
+    <div id='middleDsc'>
+    	<div>We push ourselves to new levels of inspired excellence with each<br /> project and we sweat creativity. You won&#39;t see anything until we&#39;re<br /> done drooling at the result.</div><br />
+    	<a href='#' class='middleButbutton'>Buy now for &#8364;23</a>
+    </div>
+    <div id='userComments'>
+	    <fieldset>
+		    <legend><span><a href='#userComments'>&#8897;</a></span></legend>
+		</fieldset>
+		<!--<div class='displayBtnLeft'></div>-->
+		<div class='displayContentMdl'>
+			<div class='responsive'>
+	    		<div>
+	    			<div class='userImg'>
+	    				<pre class='topImg'></pre><div class='images'></div>
+	    			</div>
+	    			<div class='userPost'>
+	    				<p>&#8243;Just started using awesome Module. Great way to boost the hard designing or prototyping process. Also a perfect tool for creative studios and freelancers&#8246;</p>
+	    				<pre>Irina Bykova<br /><span>Photographer, works with Slack team</span></pre>
+	    			</div>
+	    		</div>
+	    		<div>
+	    			<div class='userImg'>
+	    				<pre class='topImg'></pre><div class='images'></div>
+	    			</div>
+	    			<div class='userPost'>
+	    				<p>&#8243;Just started using awesome Module. Great way to boost the hard designing or prototyping process. Also a perfect tool for creative studios and freelancers&#8246;</p>
+	    				<pre>Irina Bykova<br /><span>Photographer, works with Slack team</span></pre>
+	    			</div>
+	    		</div>
+	    		<div>
+	    			<div class='userImg'>
+	    				<pre class='topImg'></pre><div class='images'></div>
+	    			</div>
+	    			<div class='userPost'>
+	    				<p>&#8243;Just started using awesome Module. Great way to boost the hard designing or prototyping process. Also a perfect tool for creative studios and freelancers&#8246;</p>
+	    				<pre>Irina Bykova<br /><span>Photographer, works with Slack team</span></pre>
+	    			</div>
+	    		</div>
+		    </div>
+		    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+			<script type="text/javascript" src="js/slick.min.js"></script>
+			<script type="text/javascript">
+			    $(document).ready(function(){
+			      $('.responsive').slick({
+			        dots: false,
+			        infinite: false,
+			        speed: 300,
+			        slidesToShow: 1,
+			        slidesToScroll: 1,
+			        responsive: [
+			          {
+			            breakpoint: 1024,
+			            settings: {
+			              slidesToShow: 3,
+			              slidesToScroll: 3,
+			              infinite: true,
+			              dots: true
+			            }
+			          },
+			          {
+			            breakpoint: 600,
+			            settings: {
+			              slidesToShow: 2,
+			              slidesToScroll: 2
+			            }
+			          },
+			          {
+			            breakpoint: 480,
+			            settings: {
+			              slidesToShow: 1,
+			              slidesToScroll: 1
+			            }
+			          }
+			        ]
+			      });
+			    });
+			</script>
+		</div>
+		<!--<div class='diplayBtnRight'></div>-->
+	</div>
+	<div id='yourlicense'>
+		<h6>Choose Your License</h6>
+		<div class='row'>
+			<div class='col'>
+				<p><span>Personal</span><br /><br />Just started using awesome Module. Great way to boost the hard designing or prototyping process.</p>
+				<section class='priceLic' style='color:#7dc855'>Free</section>
+				<section class='priceExp'>Per month billed annualy or $250 from month to month</section>
+				<button>Get it</button>
+			</div>
+			<div class='col'>
+				<p><span>Agency</span><br /><br />Also a perfect tool for creative studios and freelancers</p>
+				<section class='priceLic'><span>$</span>123</section>
+				<section class='priceExp'>Per month billed annualy or $250 from month to month</section>
+				<button>Buy now</button>
+			</div>
+			<div class='col'>
+				<p><span>Unlimited</span><br /><br />Living in today&#39;s metropolitan world of cellular phones, mobile computers</p>
+				<section class='priceLic'><span>$</span>232</section>
+				<section class='priceExp'>Per month billed annualy or $250 from month to month</section>
+				<button>Buy now</button>
+			</div>
+		</div>
+	</div>
+	<div id='OneofUs'>
+		<p>Become One of Us</p>
+		<div class='moduleOne'>Module 01 is big, stylish and handy UI Kit, full of<br /> many useful elements</div>
+		<div class='inputChat'>
+			<input type='text' class='emailAdr' placeholder='E-mail address'/>
+			<input type='submit' class='btnSub' value='Let&#39;s chat'/>
+		</div>
+	</div>
+	<footer id='bottomFooter'>
+		<ul>
+			<li class='picLeft'>Pic</li>
+			<li class='middle'>Apps</li>
+			<li class='middle'>Gadgets</li>
+			<li class='middle'>Science</li>
+			<li class='middle'>Nature</li>
+			<li class='middle'>Creative</li>
+			<li class='copyRight'>@ <script>var currentTime = new Date();document.write(currentTime.getFullYear());</script> Great Simple</li>
+		</ul>
+	</footer>
+</body>
+</html>
