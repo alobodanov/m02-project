@@ -135,11 +135,12 @@ table, caption, tbody, tfoot, thead, tr, th, td, svg, rect {
         border-top: 3pt solid #eeeeee;
         width: 100%;
         height: 330px;
+        padding: 0 0 0 19px
     }
     #userComments > fieldset > legend{
         width: 100%;
         text-align: center;
-        margin: -10px 0 0 0;
+        margin: -10px 0 0 -19px;
         position: absolute;
     }
     #userComments > fieldset > legend > span {
@@ -210,7 +211,6 @@ table, caption, tbody, tfoot, thead, tr, th, td, svg, rect {
     }
     .displayContentMdl {
         width: 90%;
-        margin: 0 0 0 30px;
     }
     .displayContentMdl,.displayBtnLeft, .diplayBtnRight{
         float: left;
