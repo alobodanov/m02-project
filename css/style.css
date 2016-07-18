@@ -121,7 +121,7 @@ table, caption, tbody, tfoot, thead, tr, th, td, svg, rect {
         margin: 0 0 108px;
     }
     #middleDsc > div {
-        font-size: 9pt;
+        font-size: 8pt;
         color: #43484c;
         margin: 0 0 47px 0;
     }
@@ -335,10 +335,10 @@ table, caption, tbody, tfoot, thead, tr, th, td, svg, rect {
     }
     #OneofUs > .inputChat > input[type='text']{
         /*background: url("img/path") no-repeat scroll 4px 4px;*/
-        width: 170px;
+        width: 140px;
         height: 36px;
-        font-size: 16pt;
-        padding: 16px 0 16px 50px;
+        font-size: 13pt;
+        padding: 16px 0 16px 30px;
         border: 2px solid #e1e8ee;
         border-top-left-radius: 6px;
         border-bottom-left-radius: 6px;
